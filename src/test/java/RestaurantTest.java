@@ -71,4 +71,16 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+    public void get_total_order_for_item_in_the_menu() {
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+
+        List<String> itemNames = new ArrayList<>();
+        itemNames.add("Vegetable lasagne");
+        int totalPrice = restaurant.getOrderTotal(itemNames);
+
+        assertEquals(269, totalPrice);
+    }
 }
